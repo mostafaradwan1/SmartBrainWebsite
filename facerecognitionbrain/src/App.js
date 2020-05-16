@@ -7,9 +7,23 @@ import './App.css';
 import Rank from './components/Rank/Rank';
 import Particles  from 'react-particles-js'
 import particles from './particles';
-import { render } from 'react-dom';
+
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      input:'',
+    }
+  }
+
+  onInputChange=(e)=>{
+    console.log(e.target.value)
+  }
+
+  onSubmit=()=>{
+    console.log('click')
+  }
   render() {
     return (
       <div className="App">
@@ -17,7 +31,7 @@ class App extends Component {
         <Logo/>
         <Particles className='particles' params={particles}/>
         <Rank/>
-        <ImageLinkForm/>
+        <ImageLinkForm onInputChange={this.onInputChange} onSubmit={this.onSubmit}/>
         {/* 
         <FaceRecognition/> */}
       </div>
